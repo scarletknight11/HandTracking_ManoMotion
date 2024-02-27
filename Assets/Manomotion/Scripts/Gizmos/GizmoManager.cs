@@ -119,7 +119,7 @@ public class GizmoManager : MonoBehaviour
 
     private TextMeshProUGUI depthEstimationValue;
     private Image depthFillAmmount;
-
+    public GameObject TestObj;
 
     #region Properties
 
@@ -745,51 +745,68 @@ public class GizmoManager : MonoBehaviour
                 }
             }
 
-            if (_showSwipes)
-            {
-                if (triggerGesture == ManoGestureTrigger.SWIPE_LEFT)
-                {
-                    TriggerDisplay(trackingInfo, ManoGestureTrigger.SWIPE_LEFT);
-                }
-            }
-
-            if (_showSwipes)
-            {
-                if (triggerGesture == ManoGestureTrigger.SWIPE_RIGHT)
-                {
-                    TriggerDisplay(trackingInfo, ManoGestureTrigger.SWIPE_RIGHT);
-                }
-            }
-
-            if (_showSwipes)
-            {
-                if (triggerGesture == ManoGestureTrigger.SWIPE_UP)
-                {
-                    TriggerDisplay(trackingInfo, ManoGestureTrigger.SWIPE_UP);
-                }
-            }
-
-            if (_showSwipes)
-            {
-                if (triggerGesture == ManoGestureTrigger.SWIPE_DOWN)
-                {
-                    TriggerDisplay(trackingInfo, ManoGestureTrigger.SWIPE_DOWN);
-                }
-            }
-
-            if (_showGrabRelease)
+            if (_showGrabTriggerGesture)
             {
                 if (triggerGesture == ManoGestureTrigger.GRAB_GESTURE)
+                {
                     TriggerDisplay(trackingInfo, ManoGestureTrigger.GRAB_GESTURE);
+                    TestObj.GetComponent<Renderer>().material.color = Color.red;
+                }
             }
-
-            if (_showGrabRelease)
+            if (_showReleaseTriggerGesture)
             {
-                if (triggerGesture == ManoGestureTrigger.RELEASE_GESTURE)
+                if(triggerGesture == ManoGestureTrigger.RELEASE_GESTURE)
+                {
                     TriggerDisplay(trackingInfo, ManoGestureTrigger.RELEASE_GESTURE);
+                    TestObj.GetComponent<Renderer>().material.color = Color.white;
+                }
             }
-        }
 
+
+            //if (_showSwipes)
+            //{
+            //    if (triggerGesture == ManoGestureTrigger.SWIPE_LEFT)
+            //    {
+            //        TriggerDisplay(trackingInfo, ManoGestureTrigger.SWIPE_LEFT);
+            //    }
+            //}
+
+            //if (_showSwipes)
+            //{
+            //    if (triggerGesture == ManoGestureTrigger.SWIPE_RIGHT)
+            //    {
+            //        TriggerDisplay(trackingInfo, ManoGestureTrigger.SWIPE_RIGHT);
+            //    }
+            //}
+
+            //if (_showSwipes)
+            //{
+            //    if (triggerGesture == ManoGestureTrigger.SWIPE_UP)
+            //    {
+            //        TriggerDisplay(trackingInfo, ManoGestureTrigger.SWIPE_UP);
+            //    }
+            //}
+
+            //if (_showSwipes)
+            //{
+            //    if (triggerGesture == ManoGestureTrigger.SWIPE_DOWN)
+            //    {
+            //        TriggerDisplay(trackingInfo, ManoGestureTrigger.SWIPE_DOWN);
+            //    }
+            //}
+
+            //if (_showGrabRelease)
+            //{
+            //    if (triggerGesture == ManoGestureTrigger.GRAB_GESTURE)
+            //        TriggerDisplay(trackingInfo, ManoGestureTrigger.GRAB_GESTURE);
+            //}
+
+            //if (_showGrabRelease)
+            //{
+            //    if (triggerGesture == ManoGestureTrigger.RELEASE_GESTURE)
+            //        TriggerDisplay(trackingInfo, ManoGestureTrigger.RELEASE_GESTURE);
+            //}
+        }
         previousTrigger = triggerGesture;
     }
 
